@@ -39,7 +39,7 @@ exports.getProductByID = async(req,res)=>{
     }
 }
 
-exports.updateProduct = async(req,res)=>{
+exports.updateProductByID = async(req,res)=>{
     try {
         const{id}=req.params;
         if(!id){
