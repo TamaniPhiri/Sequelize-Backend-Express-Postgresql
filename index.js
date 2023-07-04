@@ -9,7 +9,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use('/api',require('./Routes/routes'))
 
+app.get('/', (req, res)=>{
+    res.send('Welcome to the products api')
+})
 
 sequelize.sync()
 .then(()=>{
