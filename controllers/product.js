@@ -22,6 +22,23 @@ exports.getAllProducts = async(req,res)=>{
     }
 }
 
+exports.getProductByID = async(req,res)=>{
+    try {
+        const {id}=req.params;
+        if(!id){
+            return res.status(400).json({message:"Enter valid ID"});
+        }
+        const products= await product.findOne({
+            where:{
+                id:id
+            }
+        })
+        return res.status(200).json(products);
+    } catch (error) {
+        res.status(400).json("An error occurred while getting product", error);
+    }
+}
+
 exports.updateProduct = async(req,res)=>{
     try {
         const{id}=req.params;
