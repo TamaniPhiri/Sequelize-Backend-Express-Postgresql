@@ -37,7 +37,8 @@ You can use tools like ThunderClient, Postman, or any API testing tool to intera
 # Get all products
 
 Send a GET request to /products to retrieve all products.
-Get product by ID
+
+# Get product by ID
 
 Send a GET request to /products/:id where :id is the ID of the product you want to retrieve.
 
@@ -57,13 +58,13 @@ json
 
 Send a PUT request to /products/:id where :id is the ID of the product you want to update. Include the updated product details in the request body, such as:
 
-json
+json```
 
-{
-  "name": "Updated Product Name",
-  "description": "Updated Product Description",
-  "price": 29.99
-}
+    {
+      "name": "Updated Product Name",
+      "description": "Updated Product Description",
+      "price": "2999"
+    }
 
 # Delete a product by ID
 
