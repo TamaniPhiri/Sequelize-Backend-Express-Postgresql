@@ -6,7 +6,8 @@ const product=db.define('product',{
         type:DataTypes.INTEGER,
         autoIncrement:true,
         primaryKey:true,
-        allowNull:false
+        allowNull:false,
+        unique:true
     },
     name:{
         type:DataTypes.STRING,
@@ -19,7 +20,7 @@ const product=db.define('product',{
         allowNull:false
     },
     price:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.TEXT,
         allowNull:false,
         required:true
     }

@@ -9,7 +9,7 @@ exports.createProduct = async(req, res) => {
         const products = await product.create({name, description, price});
         res.status(200).json({product: products});
     } catch (error) {
-       res.status(error.status).json({message:"Error creating product"}); 
+       res.status(500).json({message:"Error creating product",error}); 
     }
 }
 
@@ -64,6 +64,28 @@ exports.updateProductByID = async(req,res)=>{
 
         return res.status(200).json({ message: "Product updated successfully" });
     } catch (error) {
-       res.status(400).json("An error occurred", error); 
+       res.status(400).json("An error occurred :", error); 
+    }
+}
+
+exports.deleteProductByID =async(req, res) => {
+    try {
+        const {id}=req.params;
+        if (!id) {
+            return res.status(404).json({ message: "Enter a valid ID" });
+        }
+        const products = await product.findOne({
+            where: {
+                id: id
+            }
+        })
+        if(!products) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        await products.destroy();
+
+        return res.status(200).json({ message: "Product deleted successfully" });
+    } catch (error) {
+        res.status(400).json("An error occurred:", error)
     }
 }
