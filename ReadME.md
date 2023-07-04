@@ -46,13 +46,13 @@ Send a GET request to /products/:id where :id is the ID of the product you want 
 
 Send a POST request to /products with the following request body:
 
-json
+json```
 
-{
-  "name": "Product Name",
-  "description": "Product Description",
-  "price": 19.99
-}
+    {
+      "name": "Product Name",
+      "description": "Product Description",
+      "price": 19.99
+    }
 
 # Update a product by ID
 
